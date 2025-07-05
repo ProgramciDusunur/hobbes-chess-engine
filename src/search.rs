@@ -164,8 +164,7 @@ fn alpha_beta(board: &Board, td: &mut ThreadData, mut depth: i32, ply: usize, mu
             && !is_mate_score
             && move_count >= 5 + 4 * depth * depth {
             continue;
-        }
-        
+        }        
 
         if !pv_node
             && !root_node
