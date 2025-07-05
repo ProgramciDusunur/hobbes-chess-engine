@@ -159,6 +159,16 @@ fn alpha_beta(board: &Board, td: &mut ThreadData, mut depth: i32, ply: usize, mu
         let is_quiet = captured.is_none();
         let is_mate_score = Score::is_mate(best_score);
 
+        
+        if  !root_node
+            && !is_mate_score
+            && is_quiet            
+            && !is_mate_score
+            && move_count >= 4 + 3 * depth * depth {
+            continue;
+        }
+
+
         if !pv_node
             && !root_node
             && !in_check
